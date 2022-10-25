@@ -1,4 +1,15 @@
+
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+@font-face {
+  font-family: "Madjoe";
+  src: url("/font/Madjoe.ttf");
+  
+}
+
+
+
+
 
 * {
   box-sizing: border-box;
@@ -21,6 +32,9 @@ button:hover {
   color: #04c;
 }
 
+h1{
+  font-family: "Madjoe", sans-serif;
+}
 .App {
   display: flex;
 }
