@@ -1,13 +1,16 @@
+import ReactMarkdown from "react-markdown";
+
+
 function Main({ noteCible, updateNote }) {
   const editField = (key , value) => {
     updateNote({
+    ...noteCible,
       id: noteCible.id,
       [key]: value,
-  
       lastModified: Date.now(),
   });
   };
-  if(!noteCible) return <div className="no-active-note">Selected</div>
+  if (!noteCible) return <div className="no-active-note">No Active Note</div>;
   return (
     <div className="app-main">
       <div className="app-main-note-edit">
@@ -16,8 +19,8 @@ function Main({ noteCible, updateNote }) {
       </div>
   
       <div className="app-main-note-preview">
-        <h1 className="preview-title">{noteCible?.title}</h1>
-        <div className="markdown-preview">{noteCible?.body}</div>
+        <h1 className="preview-title">{noteCible.title}</h1>
+        <ReactMarkdown className="markdown-preview">{noteCible.body}</ReactMarkdown>
   
       </div>
     </div>

@@ -7,7 +7,7 @@ import SideBase from "./components/SideBase"
 const App =() => {
 const [notes, setNotes] = useState([]);
 
-const [noteCible, setNoteCible] = useState(null)
+const [noteCible, setNoteCible] = useState(false)
 
 const onAddNote = () => {
   const newNote = {
@@ -38,7 +38,9 @@ const onDeleteNote = (idToDelete) => {
   setNotes(notes.filter((note)=> note.id !== idToDelete));
 };
 
-
+ const getActiveNote= () => {
+  return notes.find((note)=> note.id === noteCible);
+ };
   return (
     
   <div className="App">
@@ -49,7 +51,7 @@ const onDeleteNote = (idToDelete) => {
   noteCible={noteCible}
   setNoteCible={setNoteCible}
    />
-  <Main noteCible={noteCible} updateNote={updateNote} />
+  <Main noteCible={getActiveNote()} updateNote={updateNote} />
   </div>
   )
 };
